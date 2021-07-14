@@ -1,0 +1,24 @@
+package home;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class MainController {
+	
+	@GetMapping("/")
+	public String Main() {
+		return "Main";
+	}
+	
+	@RequestMapping("/common/myPage")
+	public String MyPage() {  
+		return "common/myPage";
+	}
+	
+	@RequestMapping("/admin")
+	public String adminMain() {
+		return "/admin/main";
+	}
+}
