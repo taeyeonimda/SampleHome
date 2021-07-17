@@ -14,7 +14,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
-$(()=>{  
+$(()=>{
 	userReg();
 	logon();
 })
@@ -28,7 +28,7 @@ function userReg(){
 function logon(){
 	$('#logon').click(()=>{
 		location.href='./user/logon'
-	}) 
+	})
 }
 </script>
 </head>
@@ -40,7 +40,7 @@ function logon(){
 		<c:if test="${sessionScope.user.userId == 'admin' }">
 			<c:redirect url="./admin" />
 		</c:if>
-		
+
 		<c:choose>
 			<c:when test="${sessionScope.user == null }">
 				<c:choose>
@@ -66,7 +66,7 @@ function logon(){
 					</c:otherwise>
 				</c:choose>
 			</c:when>
-			
+
 			<c:when test="${sessionScope.user.userId !='admin'}">
 				<c:choose>
 					<c:when

@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
-	
+
 	@GetMapping("/")
 	public String Main() {
-		return "Main";
+		return "main";
 	}
-	
-	@RequestMapping("/common/myPage")
-	public String MyPage() {  
+
+	@GetMapping("/common/myPage")
+	public String MyPage() {
 		return "common/myPage";
 	}
-	
-	@RequestMapping("/admin")
+
+	@GetMapping("/admin")
 	public String adminMain() {
 		return "/admin/main";
 	}

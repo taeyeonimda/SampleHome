@@ -17,18 +17,18 @@ import home.user.service.UserService;
 
 
 @Controller
-@RequestMapping("/admin/user") 
+@RequestMapping("/admin/user")
 public class UserAdminController {
 	@Autowired
 	private UserService userService;
-	
-	@GetMapping("/listUser") 
+
+	@GetMapping("/listUser")
 	public String listUser(Page page,HttpSession session,
 			@RequestParam(value="nowPage", required=false)String nowPage
 			,@RequestParam(value="cntPerPage",required=false)String cntPerPage) {
-		
+
 		int total = userService.getUsersCnt();
-		if(nowPage ==null && cntPerPage ==null) { 
+		if(nowPage ==null && cntPerPage ==null) {
 			nowPage ="1";
 			cntPerPage ="5";
 		}else if(nowPage ==null) {
@@ -44,7 +44,7 @@ public class UserAdminController {
 
 		return "/admin/user/listUser";
 	};
-	
+
 	@RequestMapping("/infoUser")
 	public String infoUser(@RequestParam(value="userId",defaultValue="null")String userId,
 			HttpServletRequest req) {
@@ -53,13 +53,13 @@ public class UserAdminController {
 		req.setAttribute("userInfo", user);
 		return "/admin/user/infoUser";
 	}
-	
+
 	@RequestMapping("/chnage")
 	@ResponseBody
 	public void modiUser(User user) {
 		userService.updateUser(user);
 	}
-	
+
 	@RequestMapping("/delete")
 	@ResponseBody
 	public void delUser(User user) {
